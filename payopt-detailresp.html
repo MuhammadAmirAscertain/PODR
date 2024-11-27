@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Payment Option Details Response</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+    pre {
+      background-color: #f4f4f4;
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      overflow-x: auto;
+    }
+    .key {
+      color: #1e90ff; /* Blue for keys */
+      font-weight: bold;
+    }
+    .value {
+      color: #32cd32; /* Green for string values */
+    }
+    .number {
+      color: #ff6347; /* Tomato red for numbers */
+    }
+    .boolean {
+      color: #ff8c00; /* Orange for booleans */
+    }
+    .null {
+      color: #8a2be2; /* Purple for null */
+    }
+  </style>
+</head>
+<body>
+  <h1>Payment Option Details Response</h1>
+  <pre id="jsonDisplay"></pre>
+
+  <div>
+    <script>
+        const jsonData = {
+            "totalChannel": 5,
+            "name": "Installment Plan Payment",
+            "categoryCode": "GCARD",
+            "groupCode": "IPP",
+            "iconUrl": "https://d27uu9vmlo4gwh.cloudfront.net/images/v4/images/icon/ipp.png",
+            "channels": [
+                {
+                    "sequenceNo": 1,
+                    "name": "Citibank",
+                    "currencyCodes": [
+                        "THB"
+                    ],
+                    "iconUrl": "https://d27uu9vmlo4gwh.cloudfront.net/images/v4/images/icon/CITI.png",
+                    "logoUrl": "https://d27uu9vmlo4gwh.cloudfront.net/images/v4/images/logo/CITI.png",
+                    "payment": {
+                        "code": {
+                            "channelCode": "IPP"
+                        },
+                        "input": {
+                            "cardNo": "M",
+                            "expiryDate": "M",
+                            "securityCode": "M",
+                            "name": "O",
+                            "email": "O"
+                        },
+                        "validation": {
+                            "cardNo": null,
+                            "expiryDate": "^(2\\d{3}0?[1-9]|1[012])$",
+                            "securityCode": "^[0-9]{3,4}$",
+                            "name": "^(?!\\s*$)[-a-zA-Z' ''.']{1,}$",
+                            "email": "^(([^<>()\\[\\]\\\\.,;:\\s@\"]+(\\.[^<>()\\[\\]\\\\.,;:\\s@\"]+)*)|(\".+\"))@((\\[[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}])|(([a-zA-Z\\-0-9]+\\.)+[a-zA-Z]{2,}))$",
+                            "additional": {
+                                "cardNo": {
+                                    "luhn": true,
+                                    "prefixes": [
+                                        "455596",
+                                        "543449",
+                                        "438679",
+                                        "510511",
+                                        "540522"
+                                    ]
+                                },
+                                "amount": null
+                            }
+                        },
+                        "info": {
+                            "terms": "TOC",
+                            "promoUrl": "https://pgw-static-sandbox.s3.amazonaws.com/images/ipppromologo/2.png?v=200918030737",
+                            "plans": [
+                                {
+                                    "sequenceNo": 1,
+                                    "period": 3,
+                                    "interestType": "M",
+                                    "interestRate": 0.0,
+                                    "monthlyAmount": 3.33333,
+                                    "monthlyInterest": 0.0,
+                                    "currencyCode": "THB",
+                                    "label": "3 months with 0% interest (monthly installment amount 3.33 THB)"
+                                },
+                                {
+                                    "sequenceNo": 2,
+                                    "period": 6,
+                                    "interestType": "M",
+                                    "interestRate": 0.0,
+                                    "monthlyAmount": 1.66667,
+                                    "monthlyInterest": 0.0,
+                                    "currencyCode": "THB",
+                                    "label": "6 months with 0% interest (monthly installment amount 1.67 THB)"
+                                },
+                                {
+                                    "sequenceNo": 3,
+                                    "period": 9,
+                                    "interestType": "M",
+                                    "interestRate": 0.0,
+                                    "monthlyAmount": 1.11111,
+                                    "monthlyInterest": 0.0,
+                                    "currencyCode": "THB",
+                                    "label": "9 months with 0% interest (monthly installment amount 1.11 THB)"
+                                }
+                            ]
+                        }
+                    },
+                    "isDown": false
+                },
+                {
+                    "sequenceNo": 2,
+                    "name": "Bangkok Bank",
+                    "currencyCodes": [
+                        "THB"
+                    ],
+                    "iconUrl": "https://d27uu9vmlo4gwh.cloudfront.net/images/v4/images/icon/BBL.png",
+                    "logoUrl": "https://d27uu9vmlo4gwh.cloudfront.net/images/v4/images/logo/BBL.png",
+                    "payment": {
+                        "code": {
+                            "channelCode": "IPP"
+                        },
+                        "input": {
+                            "cardNo": "M",
+                            "expiryDate": "M",
+                            "securityCode": "M",
+                            "name": "O",
+                            "email": "O"
+                        },
+                        "validation": {
+                            "cardNo": null,
+                            "expiryDate": "^(2\\d{3}0?[1-9]|1[012])$",
+                            "securityCode": "^[0-9]{3,4}$",
+                            "name": "^(?!\\s*$)[-a-zA-Z' ''.']{1,}$",
+                            "email": "^(([^<>()\\[\\]\\\\.,;:\\s@\"]+(\\.[^<>()\\[\\]\\\\.,;:\\s@\"]+)*)|(\".+\"))@((\\[[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}])|(([a-zA-Z\\-0-9]+\\.)+[a-zA-Z]{2,}))$",
+                            "additional": {
+                                "cardNo": {
+                                    "luhn": true,
+                                    "prefixes": [
+                                        "544485",
+                                        "444433",
+                                        "414114",
+                                        "478825",
+                                        "411111"
+                                    ]
+                                },
+                                "amount": null
+                            }
+                        },
+                        "info": {
+                            "terms": "TOC",
+                            "promoUrl": "https://pgw-static-sandbox.s3.amazonaws.com/images/ipppromologo/3.png?v=200918030737",
+                            "plans": [
+                                {
+                                    "sequenceNo": 1,
+                                    "period": 6,
+                                    "interestType": "M",
+                                    "interestRate": 0.0,
+                                    "monthlyAmount": 1.66667,
+                                    "monthlyInterest": 0.0,
+                                    "currencyCode": "THB",
+                                    "label": "6 months with 0% interest (monthly installment amount 1.67 THB)"
+                                },
+                                {
+                                    "sequenceNo": 2,
+                                    "period": 9,
+                                    "interestType": "M",
+                                    "interestRate": 0.0,
+                                    "monthlyAmount": 1.11111,
+                                    "monthlyInterest": 0.0,
+                                    "currencyCode": "THB",
+                                    "label": "9 months with 0% interest (monthly installment amount 1.11 THB)"
+                                },
+                                {
+                                    "sequenceNo": 3,
+                                    "period": 12,
+                                    "interestType": "M",
+                                    "interestRate": 0.0,
+                                    "monthlyAmount": 0.83333,
+                                    "monthlyInterest": 0.0,
+                                    "currencyCode": "THB",
+                                    "label": "12 months with 0% interest (monthly installment amount 0.83 THB)"
+                                }
+                            ]
+                        }
+                    },
+                    "isDown": false
+                },
+                {
+                    "sequenceNo": 3,
+                    "name": "Bank of Ayudhya",
+                    "currencyCodes": [
+                        "THB"
+                    ],
+                    "iconUrl": "https://d27uu9vmlo4gwh.cloudfront.net/images/v4/images/icon/BAY.png",
+                    "logoUrl": "https://d27uu9vmlo4gwh.cloudfront.net/images/v4/images/logo/BAY.png",
+                    "payment": {
+                        "code": {
+                            "channelCode": "IPP"
+                        },
+                        "input": {
+                            "cardNo": "M",
+                            "expiryDate": "M",
+                            "securityCode": "M",
+                            "name": "O",
+                            "email": "O"
+                        },
+                        "validation": {
+                            "cardNo": null,
+                            "expiryDate": "^(2\\d{3}0?[1-9]|1[012])$",
+                            "securityCode": "^[0-9]{3,4}$",
+                            "name": "^(?!\\s*$)[-a-zA-Z' ''.']{1,}$",
+                            "email": "^(([^<>()\\[\\]\\\\.,;:\\s@\"]+(\\.[^<>()\\[\\]\\\\.,;:\\s@\"]+)*)|(\".+\"))@((\\[[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}])|(([a-zA-Z\\-0-9]+\\.)+[a-zA-Z]{2,}))$",
+                            "additional": {
+                                "cardNo": {
+                                    "luhn": true,
+                                    "prefixes": [
+                                        "525669",
+                                        "540474",
+                                        "455293",
+                                        "409337",
+                                        "409346",
+                                        "409345",
+                                        "528560",
+                                        "525670",
+                                        "525667",
+                                        "544572",
+                                        "450579",
+                                        "450580",
+                                        "450578",
+                                        "552165",
+                                        "543673",
+                                        "499960",
+                                        "434940",
+                                        "499959",
+                                        "455296",
+                                        "454186",
+                                        "523913",
+                                        "542380",
+                                        "455287",
+                                        "455205"
+                                    ]
+                                },
+                                "amount": null
+                            }
+                        },
+                        "info": {
+                            "terms": "Demo terms and conditions",
+                            "promoUrl": "https://pgw-static-sandbox.s3.amazonaws.com/images/ipppromologo/45.png?v=200918030737",
+                            "plans": [
+                                {
+                                    "sequenceNo": 1,
+                                    "period": 3,
+                                    "interestType": "M",
+                                    "interestRate": 0.0,
+                                    "monthlyAmount": 3.33333,
+                                    "monthlyInterest": 0.0,
+                                    "currencyCode": "THB",
+                                    "label": "3 months with 0% interest (monthly installment amount 3.33 THB)"
+                                },
+                                {
+                                    "sequenceNo": 2,
+                                    "period": 6,
+                                    "interestType": "M",
+                                    "interestRate": 0.0,
+                                    "monthlyAmount": 1.66667,
+                                    "monthlyInterest": 0.0,
+                                    "currencyCode": "THB",
+                                    "label": "6 months with 0% interest (monthly installment amount 1.67 THB)"
+                                },
+                                {
+                                    "sequenceNo": 3,
+                                    "period": 9,
+                                    "interestType": "M",
+                                    "interestRate": 0.0,
+                                    "monthlyAmount": 1.11111,
+                                    "monthlyInterest": 0.0,
+                                    "currencyCode": "THB",
+                                    "label": "9 months with 0% interest (monthly installment amount 1.11 THB)"
+                                },
+                                {
+                                    "sequenceNo": 4,
+                                    "period": 12,
+                                    "interestType": "M",
+                                    "interestRate": 0.0,
+                                    "monthlyAmount": 0.83333,
+                                    "monthlyInterest": 0.0,
+                                    "currencyCode": "THB",
+                                    "label": "12 months with 0% interest (monthly installment amount 0.83 THB)"
+                                }
+                            ]
+                        }
+                    },
+                    "isDown": false
+                },
+                {
+                    "sequenceNo": 4,
+                    "name": "Thanachart Bank",
+                    "currencyCodes": [
+                        "THB"
+                    ],
+                    "iconUrl": "https://d27uu9vmlo4gwh.cloudfront.net/images/v4/images/icon/TBANK.png",
+                    "logoUrl": "https://d27uu9vmlo4gwh.cloudfront.net/images/v4/images/logo/TBANK.png",
+                    "payment": {
+                        "code": {
+                            "channelCode": "IPP"
+                        },
+                        "input": {
+                            "cardNo": "M",
+                            "expiryDate": "M",
+                            "securityCode": "M",
+                            "name": "O",
+                            "email": "O"
+                        },
+                        "validation": {
+                            "cardNo": null,
+                            "expiryDate": "^(2\\d{3}0?[1-9]|1[012])$",
+                            "securityCode": "^[0-9]{3,4}$",
+                            "name": "^(?!\\s*$)[-a-zA-Z' ''.']{1,}$",
+                            "email": "^(([^<>()\\[\\]\\\\.,;:\\s@\"]+(\\.[^<>()\\[\\]\\\\.,;:\\s@\"]+)*)|(\".+\"))@((\\[[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}])|(([a-zA-Z\\-0-9]+\\.)+[a-zA-Z]{2,}))$",
+                            "additional": {
+                                "cardNo": {
+                                    "luhn": true,
+                                    "prefixes": [
+                                        "414155",
+                                        "511355",
+                                        "414167",
+                                        "512445",
+                                        "454623"
+                                    ]
+                                },
+                                "amount": null
+                            }
+                        },
+                        "info": {
+                            "terms": "NA",
+                            "promoUrl": "https://pgw-static-sandbox.s3.amazonaws.com/images/ipppromologo/22.png?v=200918030737",
+                            "plans": [
+                                {
+                                    "sequenceNo": 1,
+                                    "period": 3,
+                                    "interestType": "M",
+                                    "interestRate": 0.0,
+                                    "monthlyAmount": 3.33333,
+                                    "monthlyInterest": 0.0,
+                                    "currencyCode": "THB",
+                                    "label": "3 months with 0% interest (monthly installment amount 3.33 THB)"
+                                },
+                                {
+                                    "sequenceNo": 2,
+                                    "period": 6,
+                                    "interestType": "M",
+                                    "interestRate": 0.0,
+                                    "monthlyAmount": 1.66667,
+                                    "monthlyInterest": 0.0,
+                                    "currencyCode": "THB",
+                                    "label": "6 months with 0% interest (monthly installment amount 1.67 THB)"
+                                }
+                            ]
+                        }
+                    },
+                    "isDown": false
+                },
+                {
+                    "sequenceNo": 5,
+                    "name": "United Overseas Bank",
+                    "currencyCodes": [
+                        "THB"
+                    ],
+                    "iconUrl": "https://d27uu9vmlo4gwh.cloudfront.net/images/v4/images/icon/UOB.png",
+                    "logoUrl": "https://d27uu9vmlo4gwh.cloudfront.net/images/v4/images/logo/UOB.png",
+                    "payment": {
+                        "code": {
+                            "channelCode": "IPP"
+                        },
+                        "input": {
+                            "cardNo": "M",
+                            "expiryDate": "M",
+                            "securityCode": "M",
+                            "name": "O",
+                            "email": "O"
+                        },
+                        "validation": {
+                            "cardNo": null,
+                            "expiryDate": "^(2\\d{3}0?[1-9]|1[012])$",
+                            "securityCode": "^[0-9]{3,4}$",
+                            "name": "^(?!\\s*$)[-a-zA-Z' ''.']{1,}$",
+                            "email": "^(([^<>()\\[\\]\\\\.,;:\\s@\"]+(\\.[^<>()\\[\\]\\\\.,;:\\s@\"]+)*)|(\".+\"))@((\\[[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}])|(([a-zA-Z\\-0-9]+\\.)+[a-zA-Z]{2,}))$",
+                            "additional": {
+                                "cardNo": {
+                                    "luhn": true,
+                                    "prefixes": [
+                                        "543215",
+                                        "403375"
+                                    ]
+                                },
+                                "amount": null
+                            }
+                        },
+                        "info": {
+                            "terms": "&amp;lt;a href=&amp;quot;http://www.uob.com.sg/assets/pdfs/personal/cards/zeroinstaltnc.pdf&amp;quot; &amp;gt;Terms and condition\n&amp;lt;/a&amp;gt;",
+                            "promoUrl": "https://pgw-static-sandbox.s3.amazonaws.com/images/ipppromologo/17.png?v=200918030737",
+                            "plans": [
+                                {
+                                    "sequenceNo": 1,
+                                    "period": 9,
+                                    "interestType": "M",
+                                    "interestRate": 0.0,
+                                    "monthlyAmount": 1.11111,
+                                    "monthlyInterest": 0.0,
+                                    "currencyCode": "THB",
+                                    "label": "9 months with 0% interest (monthly installment amount 1.11 THB)"
+                                },
+                                {
+                                    "sequenceNo": 2,
+                                    "period": 12,
+                                    "interestType": "M",
+                                    "interestRate": 0.0,
+                                    "monthlyAmount": 0.83333,
+                                    "monthlyInterest": 0.0,
+                                    "currencyCode": "THB",
+                                    "label": "12 months with 0% interest (monthly installment amount 0.83 THB)"
+                                }
+                            ]
+                        }
+                    },
+                    "isDown": false
+                }
+            ],
+            "validation": {
+                "cardNo": {
+                    "prefixes": [
+                        "455596",
+                        "543449",
+                        "438679",
+                        "510511",
+                        "540522",
+                        "544485",
+                        "444433",
+                        "414114",
+                        "478825",
+                        "411111",
+                        "525669",
+                        "540474",
+                        "455293",
+                        "409337",
+                        "409346",
+                        "409345",
+                        "528560",
+                        "525670",
+                        "525667",
+                        "544572",
+                        "450579",
+                        "450580",
+                        "450578",
+                        "552165",
+                        "543673",
+                        "499960",
+                        "434940",
+                        "499959",
+                        "455296",
+                        "454186",
+                        "523913",
+                        "542380",
+                        "455287",
+                        "455205",
+                        "414155",
+                        "511355",
+                        "414167",
+                        "512445",
+                        "454623",
+                        "543215",
+                        "403375"
+                    ],
+                    "regex": null
+                },
+                "cardTypes": [
+                    {
+                        "sequenceNo": 1,
+                        "name": "MasterCard",
+                        "prefixes": [
+                            "51",
+                            "52",
+                            "53",
+                            "54",
+                            "55",
+                            "2221",
+                            "2222",
+                            "2223",
+                            "2224",
+                            "2225",
+                            "2226",
+                            "2227",
+                            "2228",
+                            "2229",
+                            "223",
+                            "224",
+                            "225",
+                            "226",
+                            "227",
+                            "228",
+                            "229",
+                            "23",
+                            "24",
+                            "25",
+                            "26",
+                            "270",
+                            "271",
+                            "2720"
+                        ],
+                        "regex": "^(?:5[1-5][0-9]{2}|222[1-9]|22[3-9][0-9]|2[3-6][0-9]{2}|27[01][0-9]|2720)[0-9]{12}$",
+                        "iconUrl": "https://d27uu9vmlo4gwh.cloudfront.net/images/v4/images/icon/master.png"
+                    },
+                    {
+                        "sequenceNo": 2,
+                        "name": "VISA",
+                        "prefixes": [
+                            "4"
+                        ],
+                        "regex": "^4[0-9]{12}(?:[0-9]{3})?$",
+                        "iconUrl": "https://d27uu9vmlo4gwh.cloudfront.net/images/v4/images/icon/visa.png"
+                    }
+                ]
+            },
+            "configuration": {
+                "payment": {
+                    "tokenize": false,
+                    "tokenizeOnly": false,
+                    "cardTokenOnly": false,
+                    "immediatePayment": false
+                },
+                "notification": {
+                    "facebook": false,
+                    "whatsApp": false,
+                    "line": false
+                }
+            },
+            "respCode": "0000",
+            "respDesc": "Success"
+        };
+    
+        const jsonDisplay = document.getElementById('jsonDisplay');
+    
+        jsonDisplay.textContent = JSON.stringify(jsonData, null, 2);
+      </script>
+  </div>
+</body>
+</html>
